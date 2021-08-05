@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 import Video from '../../assests/videos/video.mp4';
-import  {FilterTextbox}  from '../Searchbar/searchbar.tsx';
+import  {FilterTextbox}  from '../Searchbar/searchbar.jsx';
 import { Button } from '../Button/ButtonElements';
 import { 
   HeroContainer,
@@ -22,15 +22,18 @@ const HeroSection = () => {
     setHover(!hover);
   }
   return (
-    <HeroContainer>
+    <HeroContainer id='home'>
       <HeroBg>
         <VideoBg autoPlay loop muted src={ Video } type="video/mp4" />
       </HeroBg>
       <HeroContent>
         <HeroH1> Stay Healthy!</HeroH1>
-        <HeroP>
+        {/* <HeroP>
           Why travel when you can have access to 
-          a doctor within the twinkle of an eye. You are never out of reach
+          HEALTH CENTERS within the twinkle of an eye. You are never out of reach
+        </HeroP> */}
+        <HeroP>
+          With just a click, you can have access to any health center in the world. You are never out of reach.
         </HeroP>
         <FilterTextbox />
         <HeroBtnWrapper>
