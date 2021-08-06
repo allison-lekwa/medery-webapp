@@ -1,21 +1,66 @@
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import './App.css';
-import Navbar from './components/Navbar';
 import Home from './pages/homepage';
 import SigninPage from './pages/signin/signin';
 import SignupPage from './pages/signup/signup';
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/signin" component={SigninPage} exact />
-        <Route path="/signup" component={SignupPage} exact />
-      </Switch>
-    </Router>
-  );
+import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
+
+class App extends React.Component {
+  constructor (){
+    super()
+    this.state = {
+      currentUser: null,
+      isOpen: false
+    }
+  }
+
+  unsubcribedFromAuth = null;
+
+  componentDidMount() {
+    this.unsubcribedFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if(userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            CurrentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          })
+        });
+      }
+      this.setState({ currentUser: userAuth})
+    })
+  }
+  componentWillUnmount() {
+    this.unsubcribedFromAuth();    
+  };
+  toggle = () => {
+    this.setState({ isOpen: !this.state.isOpen});
+  }
+  render() {
+    const isOpen = this.state.isOpen;
+
+    return ( 
+      <Router>
+        <Sidebar isOpen={isOpen} toggle={this.toggle} currentUser={this.state.currentUser} />
+        <Navbar toggle={this.toggle} currentUser={this.state.currentUser}/>
+        <Switch>
+          <Route path="/" component={Home} exact />
+          <Route path="/signin" component={SigninPage} exact />
+          <Route path="/signup" component={SignupPage} exact />
+        </Switch>
+      </Router>
+    );
+
+  }
+  
 }
 
 export default App;

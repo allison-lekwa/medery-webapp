@@ -1,4 +1,5 @@
 import React from 'react'
+import { auth } from '../../firebase/firebase.utils';
 import { 
   SidebarContainer, 
   CloseIcon, 
@@ -10,7 +11,7 @@ import {
   SidebarRoute
 } from './SidebarElements'
 
-const Sidebar = ({isOpen, toggle}) => {
+const Sidebar = ({isOpen, toggle, currentUser}) => {
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
@@ -27,14 +28,26 @@ const Sidebar = ({isOpen, toggle}) => {
           <SidebarLink  to="partner" onClick={toggle}>
             Partner With Us
           </SidebarLink>
-          <SidebarLink  to="signup" onClick={toggle}>
-            Sign Up
-          </SidebarLink>
+          {
+            currentUser ?
+              null
+            :
+              <SidebarLink  to="signup" onClick={toggle}>
+                Sign Up
+              </SidebarLink>
+          }
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute to="/signin" onClick={toggle}>
-            Sign In
-          </SidebarRoute>
+          {
+            currentUser ?
+              <SidebarRoute  onClick={() => auth.signOut()}>
+                Sign Out
+              </SidebarRoute>
+            :
+              <SidebarRoute to="/signin" onClick={toggle}>
+                Sign In
+              </SidebarRoute>
+          }
         </SideBtnWrap>
       </SidebarWrapper>
       

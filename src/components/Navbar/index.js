@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { GiHospital } from "react-icons/gi";
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
 import {Nav,
@@ -14,7 +13,10 @@ import {Nav,
    NavBtnLink
   } from './NavbarElement';
 
-const Navbar = ({ toggle }) => {
+  import { auth } from '../../firebase/firebase.utils';
+
+
+const Navbar = ({ currentUser, toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
 
   const changeNav = () => {
@@ -32,6 +34,7 @@ const Navbar = ({ toggle }) => {
   const toggleHome = () => {
     scroll.scrollToTop();
   }
+  
 
 
   return (
@@ -79,20 +82,30 @@ const Navbar = ({ toggle }) => {
                 Partner With Us
               </NavLinks>
             </NavItem>
-            <NavItem>
-              <NavLinks to="signup"
-              smooth={true}
-              durations={500}
-              spy={true} 
-              exact='true'
-              offset={-80}
-              >
-                Sign Up
-              </NavLinks>
-            </NavItem>
+            { 
+              currentUser ?
+                null
+              :
+                <NavItem>
+                  <NavLinks to="signup"
+                  smooth={true}
+                  durations={500}
+                  spy={true} 
+                  exact='true'
+                  offset={-80}
+                  >
+                    Sign Up
+                  </NavLinks>
+                </NavItem>
+            }
           </NavMenu>
           <NavBtn>
-            <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+            {
+            currentUser ? 
+              <NavBtnLink onClick={() => auth.signOut()}>Sign Out</NavBtnLink> 
+              :
+              <NavBtnLink to='/signin'>Sign In</NavBtnLink>
+            }
           </NavBtn>
         </NavbarContainer>
       </Nav>
