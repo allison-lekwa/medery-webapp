@@ -3,7 +3,6 @@ import Video from '../../assests/videos/video.mp4';
 import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, HeroBg, Icon, ImgBg, Text } from './SignupElements';
 
 import { auth, createUserProfileDocument } from '../../firebase/firebase.utils';
-import { Redirect } from 'react-router-dom';
 
 class SignUp extends React.Component {
 
@@ -17,8 +16,7 @@ class SignUp extends React.Component {
       specialization: '',
       email: '',
       password: '',
-      confirmPassword: '',
-      toHomePage: 'false',
+      confirmPassword: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -42,9 +40,7 @@ class SignUp extends React.Component {
         specialization: '',
         email: '',
         password: '',
-        confirmPassword: '',
-        toHomePage: 'true'
-        
+        confirmPassword: '',      
       });
 
       alert("Thank you for signing up");
@@ -61,10 +57,8 @@ class SignUp extends React.Component {
 
   render(){
 
-    const { toHomePage, companyName, address, category, specialization, email, password, confirmPassword } = this.state;
-    if(toHomePage === 'true') {
-      return <Redirect to='/' toHomePage={toHomePage} />
-    }
+    const { companyName, address, category, specialization, email, password, confirmPassword } = this.state;
+  
     return (
       <>
          <Container>

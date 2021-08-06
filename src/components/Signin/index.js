@@ -1,18 +1,16 @@
 import React from 'react'
 
-import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
+import { auth} from '../../firebase/firebase.utils';
 
 import Video from '../../assests/videos/video.mp4';
-import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, HeroBg, Icon, ImgBg, Text } from './SigninElements'
-import { Redirect } from 'react-router-dom';
+import { Container, Form, FormButton, FormContent, FormH1, FormInput, FormLabel, FormWrap, HeroBg, Icon, ImgBg, Text } from './SigninElements';
 
 class SignIn extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
       email: '',
-      password: '',
-      toHomePage: 'false'
+      password: ''
     }
   }
   
@@ -29,7 +27,7 @@ class SignIn extends React.Component{
     }
      
 
-    this.setState({email: '', password: '', toHomePage: 'true'})
+    this.setState({email: '', password: ''})
   }
 
   handleChange = event => {
@@ -38,11 +36,7 @@ class SignIn extends React.Component{
   }
 
   render(){
-    const {toHomePage} = this.state;
 
-    if(toHomePage === 'true') {
-      return <Redirect to='/' toHomePage={toHomePage} />
-    }
     return (
       <>
         <Container>

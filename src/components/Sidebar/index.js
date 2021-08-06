@@ -41,7 +41,7 @@ const Sidebar = ({isOpen, toggle, currentUser}) => {
         <SideBtnWrap>
           {
             currentUser ?
-              <SidebarRoute  onClick={() => auth.signOut()}>
+              <SidebarRoute to='/'  onClick={() => auth.signOut()}>
                 Sign Out
               </SidebarRoute>
             :

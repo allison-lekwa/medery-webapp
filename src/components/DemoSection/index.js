@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Button } from '../Button/ButtonElements'
 import { BtnLink, BtnWrap,
   Column1,
@@ -18,17 +18,9 @@ const DemoSection = ({
   lightBg, id, imgStart, topLine, lightText, headLine, darkText,
   description, buttonLabel, img, alt, primary, dark, dark2
 }) => {
-  const [ids, setIds] = useState(false);
-  const onIds = () => {
-    if(id === 'signup'){
-      setIds(true);
-    }
-    else{
-      setIds(false);
-    }
-    
-  }
+  const spy = true;
   return (
+    
     <>
       <DemoContainer lightBg={lightBg} id={id}>
         <DemoWrapper>
@@ -42,8 +34,8 @@ const DemoSection = ({
                   id !== 'signup' ? 
                   <Button
                     smooth={true}
-                    duration={500}
                     spy={true}
+                    duration={500}
                     exact="true"
                     offset={-80}
                     primary={primary ? 1 : 0}
@@ -53,8 +45,8 @@ const DemoSection = ({
                   >{buttonLabel}</Button> : 
                   <BtnLink
                     smooth={true}
-                    duration={500}
                     spy={true}
+                    duration={500}
                     exact="true"
                     offset={-80}
                     primary={primary ? 1 : 0}

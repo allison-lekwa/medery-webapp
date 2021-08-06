@@ -54,8 +54,8 @@ const Navbar = ({ currentUser, toggle }) => {
             <NavItem>
               <NavLinks to="about"
               smooth={true}
-              durations={500}
               spy={true} 
+              durations={500}
               exact='true'
               offset={-80}
               >
@@ -65,8 +65,8 @@ const Navbar = ({ currentUser, toggle }) => {
             <NavItem>
               <NavLinks to="pricing"
               smooth={true}
+              spy={true}
               durations={500}
-              spy={true} 
               exact='true'
               offset={-80}
               >
@@ -76,8 +76,8 @@ const Navbar = ({ currentUser, toggle }) => {
             <NavItem>
               <NavLinks to="partner"
               smooth={true}
-              durations={500}
-              spy={true} 
+              spy={true}
+              durations={500} 
               exact='true'
               offset={-80}
               >
@@ -91,8 +91,8 @@ const Navbar = ({ currentUser, toggle }) => {
                 <NavItem>
                   <NavLinks to="signup"
                   smooth={true}
+                  spy={true}
                   durations={500}
-                  spy={true} 
                   exact='true'
                   offset={-80}
                   >
@@ -104,7 +104,7 @@ const Navbar = ({ currentUser, toggle }) => {
           <NavBtn>
             {
             currentUser ? 
-              <NavBtnLink onClick={() => auth.signOut()}>Sign Out</NavBtnLink> 
+              <NavBtnLink to='/' onClick={() => auth.signOut()}>Sign Out</NavBtnLink> 
               :
               <NavBtnLink to='/signin'>Sign In</NavBtnLink>
             }
