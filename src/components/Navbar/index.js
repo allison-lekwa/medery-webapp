@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { animateScroll as scroll } from 'react-scroll';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+
 
 import {Nav,
    NavbarContainer,
@@ -50,7 +52,7 @@ const Navbar = ({ currentUser, toggle }) => {
             Medery
           </NavLogo>
           <MobileIcon onClick={toggle}>
-            <FaBars />
+          <FontAwesomeIcon icon={faBars} color='white' />
           </MobileIcon>
           <NavMenu>
             <NavItem>

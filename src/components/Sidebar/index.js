@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { auth } from '../../firebase/firebase.utils';
 import { selectCurrentUser } from '../../redux/user/user.selectors';
 import { 
-  SidebarContainer, 
-  CloseIcon, 
+  SidebarContainer,  
   Icon,
   SidebarWrapper,
   SidebarMenu,
@@ -19,7 +20,7 @@ const Sidebar = ({isOpen, toggle, currentUser}) => {
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
-        <CloseIcon />
+      <FontAwesomeIcon icon={faTimes} color='white' />
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
