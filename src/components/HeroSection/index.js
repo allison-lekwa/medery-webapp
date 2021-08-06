@@ -1,4 +1,6 @@
 import React, {useState} from 'react'
+import { faArrowRight, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import Video from '../../assests/videos/video.mp4';
 import  {FilterTextbox}  from '../Searchbar/searchbar.jsx';
@@ -11,8 +13,7 @@ import {
   HeroH1,
   HeroP,
   HeroBtnWrapper,
-  ArrowFoward,
-  ArrowRight
+  Arrow
  } from './HeroElements';
 
 
@@ -39,7 +40,7 @@ const HeroSection = () => {
         <HeroBtnWrapper>
           <Button to='search' onMouseEnter={onHover}
             onMouseLeave={onHover}>
-            Find Medical Centers {hover ? <ArrowFoward /> : <ArrowRight />}
+            Find Medical Centers {hover ? <Arrow><FontAwesomeIcon icon={faArrowRight} /></Arrow> : <Arrow><FontAwesomeIcon icon={faChevronRight} /></Arrow>}
           </Button>
         </HeroBtnWrapper>
         
