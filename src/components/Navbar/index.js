@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { animateScroll as scroll } from 'react-scroll';
+import { connect } from 'react-redux';
+
 import {Nav,
    NavbarContainer,
    NavLogo, 
@@ -113,5 +115,8 @@ const Navbar = ({ currentUser, toggle }) => {
     </>
   );
 };
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+})
 
-export default Navbar;
+export default connect(mapStateToProps)(Navbar);

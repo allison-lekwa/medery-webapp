@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import{ connect } from 'react-redux';
 
 import './App.css';
 import Home from './pages/homepage';
@@ -9,12 +10,12 @@ import SignupPage from './pages/signup/signup';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
+import {setCurrentUser} from './redux/user/user.actions';
 
 class App extends React.Component {
   constructor (){
     super()
     this.state = {
-      currentUser: null,
       isOpen: false
     }
   }
@@ -22,20 +23,22 @@ class App extends React.Component {
   unsubcribedFromAuth = null;
 
   componentDidMount() {
+    const {setCurrentUser} = this.props;
+
     this.unsubcribedFromAuth = auth.onAuthStateChanged(async userAuth => {
       if(userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapShot => {
-          this.setState({
-            CurrentUser: {
+          setCurrentUser({
+            
               id: snapShot.id,
               ...snapShot.data()
-            }
+            
           })
         });
       }
-      this.setState({ currentUser: userAuth})
+      setCurrentUser(userAuth)
     })
   }
   componentWillUnmount() {
@@ -49,8 +52,8 @@ class App extends React.Component {
 
     return ( 
       <Router>
-        <Sidebar isOpen={isOpen} toggle={this.toggle} currentUser={this.state.currentUser} />
-        <Navbar toggle={this.toggle} currentUser={this.state.currentUser}/>
+        <Sidebar isOpen={isOpen} toggle={this.toggle} />
+        <Navbar toggle={this.toggle} />
         <Switch>
           <Route path="/" component={Home} exact />
           <Route path="/signin" component={SigninPage} exact />
@@ -63,4 +66,9 @@ class App extends React.Component {
   
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+
+export default connect(null, mapDispatchToProps)(App);
