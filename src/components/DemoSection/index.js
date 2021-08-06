@@ -18,7 +18,7 @@ const DemoSection = ({
   lightBg, id, imgStart, topLine, lightText, headLine, darkText,
   description, buttonLabel, img, alt, primary, dark, dark2
 }) => {
-  const spy = true;
+
   return (
     
     <>

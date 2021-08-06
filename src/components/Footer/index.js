@@ -1,6 +1,7 @@
 import React from 'react';
 import { animateScroll as scroll } from 'react-scroll';
-import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa'
+import { faFacebook, faInstagram, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FooterContainer, FooterLinkItems, FooterLinksContainer, FooterLinksWrapper, FooterWrapper, SocialIconLink, SocialIcons, SocialLogo, SocialMedia, SocialMediaWrap, WebsiteRights } from './footerElements'
 
 const Footer = () => {
@@ -60,19 +61,19 @@ const Footer = () => {
             <SocialIcons>
               <SocialIconLink href='/' target='_blank'
               aria-label="Facebook">
-                <FaFacebook />
+                <FontAwesomeIcon icon={faFacebook} color='white' />
               </SocialIconLink>
               <SocialIconLink href='/' target='_blank'
               aria-label="Instragram">
-                <FaInstagram />
+                <FontAwesomeIcon icon={faInstagram} color='white' />
               </SocialIconLink>
               <SocialIconLink href='/' target='_blank'
               aria-label="Youtube">
-                <FaYoutube />
+                <FontAwesomeIcon icon={faYoutube} color='white' />
               </SocialIconLink>
               <SocialIconLink href='/' target='_blank'
               aria-label="Twitter">
-                <FaTwitter />
+                <FontAwesomeIcon icon={faTwitter} color='white' />
               </SocialIconLink>
             </SocialIcons>
           </SocialMediaWrap>
