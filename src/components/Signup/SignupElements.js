@@ -62,7 +62,7 @@ export const Icon = styled(LinkR)`
     margin-left: 16px;
   }
   @media screen and (max-width: 400px) {
-    margin-top: 50px;
+    margin-top: 100px;
     margin-left: 16px;
   }
 `;
@@ -78,7 +78,7 @@ export const FormContent = styled.div`
     
   }
   @media screen and (max-width: 400px) {
-    margin-top: 150px;
+    margin-top: 30px;
   }
 `;
 
@@ -97,6 +97,9 @@ export const Form = styled.form`
   @media screen and (max-width: 680px) {
     padding: 32px 32px;
     width: 80%;
+  }
+  @media screen and (max-width: 480px) {
+    padding: 10px 10px;
   }
 `;
 
