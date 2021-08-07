@@ -32,9 +32,9 @@ const DemoSection = ({
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headLine}</Heading>
-                <Subtitle darkText={darkText}><FontAwesomeIcon icon={faCircle} color='#000026' />  {description}</Subtitle>
-                <Subtitle darkText={darkText}><FontAwesomeIcon icon={faCircle} color='#000026' />  {desc1}</Subtitle>
-                <Subtitle darkText={darkText}><FontAwesomeIcon icon={faCircle} color='#000026' />  {desc2}</Subtitle>
+                <Subtitle darkText={darkText}>{id ==='partner' ? <FontAwesomeIcon icon={faCircle} color='#000026' /> : null } {description}</Subtitle>
+                <Subtitle darkText={darkText}>{id ==='partner' ? <FontAwesomeIcon icon={faCircle} color='#000026' /> : null } {desc1}</Subtitle>
+                <Subtitle darkText={darkText}>{id ==='partner' ? <FontAwesomeIcon icon={faCircle} color='#000026' /> : null } {desc2}</Subtitle>
                 <BtnWrap> {
                   id !== 'signup' ? 
                   <Button

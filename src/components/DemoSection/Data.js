@@ -1,6 +1,8 @@
 import imgOne from '../../assests/icons/signup.svg'
 import imgTwo from '../../assests/icons/img-four.svg'
 import imgThree from '../../assests/icons/img-five.svg'
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export const homeObjOne = {
   id: 'signup',
   lightBg: false,
