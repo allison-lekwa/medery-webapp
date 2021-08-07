@@ -53,7 +53,7 @@ export const homeObjThree = {
   headLine: 'Our Products',
   description:'Virtual Medical Consultation',
   desc1: 'Pharmaceutical Stores',
-  desc2: 'Medical Laboratory Centres',
+  desc2: 'Medical Diagnostic Centres',
   buttonLabel: 'Find Your Way',
   imgStart: true,
   img: imgThree,
