@@ -1,4 +1,7 @@
 import React from 'react'
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import { Button } from '../Button/ButtonElements'
 import { BtnLink, BtnWrap,
   Column1,
@@ -29,9 +32,9 @@ const DemoSection = ({
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headLine}</Heading>
-                <Subtitle darkText={darkText}>{description}</Subtitle>
-                <Subtitle darkText={darkText}>{desc1}</Subtitle>
-                <Subtitle darkText={darkText}>{desc2}</Subtitle>
+                <Subtitle darkText={darkText}><FontAwesomeIcon icon={faCircle} color='#000026' />  {description}</Subtitle>
+                <Subtitle darkText={darkText}><FontAwesomeIcon icon={faCircle} color='#000026' />  {desc1}</Subtitle>
+                <Subtitle darkText={darkText}><FontAwesomeIcon icon={faCircle} color='#000026' />  {desc2}</Subtitle>
                 <BtnWrap> {
                   id !== 'signup' ? 
                   <Button
