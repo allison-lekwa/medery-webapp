@@ -34,7 +34,7 @@ const HeroSection = () => {
           HEALTH CENTERS within the twinkle of an eye. You are never out of reach
         </HeroP> */}
         <HeroP>
-          With just a click, you can have access to any health center in the world. You are never out of reach.
+          With just a click, you can have access to quality health care. You are never out of reach.
         </HeroP>
         <FilterTextbox />
         <HeroBtnWrapper>
