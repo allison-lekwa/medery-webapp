@@ -25,7 +25,11 @@ export const ServicesHeaderContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: start;
-  padding-left: 100px;  
+  padding-left: 100px;
+
+  @media screen and (max-width: 680px) {
+    padding-left: 40px;
+  }
 `;
 
 export const ServicesWrapper = styled.div`
@@ -115,6 +119,7 @@ export const ServicesH2 = styled.h2`
 export const ServicesP = styled.p`
   font-size: 0.8rem;
   text-align: start;
+  margin-bottom: 5px;
 `;
 
 export const ServicesP1 = styled.p`

@@ -61,6 +61,10 @@ export const Icon = styled(LinkR)`
     margin-top: 8px;
     margin-left: 16px;
   }
+  @media screen and (max-width: 400px) {
+    margin-top: 50px;
+    margin-left: 16px;
+  }
 `;
 
 export const FormContent = styled.div`
@@ -69,8 +73,12 @@ export const FormContent = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 680px) {
     padding: 10px;
+    
+  }
+  @media screen and (max-width: 400px) {
+    margin-top: 150px;
   }
 `;
 
