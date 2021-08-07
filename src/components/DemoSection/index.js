@@ -16,7 +16,7 @@ import { BtnLink, BtnWrap,
 
 const DemoSection = ({
   lightBg, id, imgStart, topLine, lightText, headLine, darkText,
-  description, buttonLabel, img, alt, primary, dark, dark2
+  description, desc1, desc2, buttonLabel, img, alt, primary, dark, dark2
 }) => {
 
   return (
@@ -30,6 +30,8 @@ const DemoSection = ({
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headLine}</Heading>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
+                <Subtitle darkText={darkText}>{desc1}</Subtitle>
+                <Subtitle darkText={darkText}>{desc2}</Subtitle>
                 <BtnWrap> {
                   id !== 'signup' ? 
                   <Button
