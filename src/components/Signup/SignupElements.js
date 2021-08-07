@@ -115,6 +115,10 @@ export const FormLabel = styled.label`
   margin-bottom: 8px;
   font-size: 14px;
   color: #fff;
+  @media screen and (max-width: 480px) {
+    margin-bottom: 6px;
+    font-size: 12px;
+  }
 `;
 
 export const FormInput = styled.input`
@@ -122,6 +126,10 @@ export const FormInput = styled.input`
   margin-bottom: 18px;
   border: none;
   border-radius: 4px;
+  
+  @media screen and (max-width: 480px) {
+    margin-bottom: 14px;
+  }
 `;
 
 export const FormButton = styled.button`
